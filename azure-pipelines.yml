@@ -59,18 +59,7 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'Upload package'
-      artifact: drop	
-    - task: AzureMysqlDeployment@1
-      inputs:
-        azureSubscription: 'Azure subscription 1 (2edb49c8-c61a-4cc6-ad79-ba799dc6ef3e)'
-        ServerName: 'm365ksharedb.mysql.database.azure.com'
-        SqlUsername: 'linux'
-        SqlPassword: '$(SQLpass)'
-        TaskNameSelector: 'SqlTaskFile'
-        SqlFile: 'SELECT * FROM User'
-        IpDetectionMethod: 'AutoDetect'
+
 
 
 
