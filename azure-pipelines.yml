@@ -61,8 +61,7 @@ stages:
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
-      artifact: drop
-			
+      artifact: drop	
     - task: AzureMysqlDeployment@1
       inputs:
         azureSubscription: 'Azure subscription 1 (2edb49c8-c61a-4cc6-ad79-ba799dc6ef3e)'
